@@ -1,0 +1,33 @@
+{
+  "name": "nock.jsx",
+  "version": "0.1.0",
+  "description": "HTTP mock for jsx",
+  "main": "nock.jsx.js",
+  "scripts": {
+    "test": "jsx --test t/*.jsx && tape test/*",
+    "postinstall": "jsx lib/nock.jsx | jsx-linker -t commonjs-lib --stdin -o nock.jsx.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yosuke-furukawa/nock.jsx"
+  },
+  "keywords": [
+    "http",
+    "mock",
+    "jsx",
+    "nock"
+  ],
+  "author": "yosuke-furukawa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yosuke-furukawa/nock.jsx/issues"
+  },
+  "devDependencies": {
+    "nock": "~0.27.2",
+    "jsx": "~0.9.83",
+    "nodejs.jsx": "~0.1.4",
+    "tape": "~2.10.2",
+    "needle": "~0.6.6",
+    "jsx-linker": "~0.1.5"
+  }
+}
