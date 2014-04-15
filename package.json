@@ -22,12 +22,14 @@
   "bugs": {
     "url": "https://github.com/yosuke-furukawa/nock.jsx/issues"
   },
-  "devDependencies": {
+  "dependencies": {
     "nock": "~0.27.2",
-    "jsx": "~0.9.83",
     "nodejs.jsx": "~0.1.4",
-    "tape": "~2.10.2",
-    "needle": "~0.6.6",
     "jsx-linker": "~0.1.5"
+  },
+  "devDependencies": {
+    "jsx": "~0.9.83",
+    "tape": "~2.10.2",
+    "needle": "~0.6.6"
   }
 }
