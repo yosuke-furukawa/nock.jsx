@@ -24,5 +24,10 @@ native __fake__ class Scope {
 
   function reply(statusCode:int, json:variant) : Scope;
   function reply(statusCode:int, json:variant, option:Map.<variant>) : Scope;
+
+  function times(num:int) : Scope;
+  function once() : Scope;
+  function twice() : Scope;
+  function thrice() : Scope;
 }
 

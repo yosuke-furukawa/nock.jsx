@@ -50,5 +50,29 @@ class _Test extends TestCase {
     });
     }, 10000);
   }
+  function testNockGetJSONTimes() :void {
+    this.async(function(async : AsyncContext) : void {
+    Nock.setUrl("http://www.google.com").get("/").times(3).reply(200, {"abc":"def", "ghi":123}, {"Content-Type" : "application/json"});
+    needle.get("http://www.google.com/", function(err, response, data){
+      this.expect(response.statusCode).toBe(200);
+      var dataRaw = data as variant;
+      this.toMapMatch({"abc":"def", "ghi":123}, dataRaw as Map.<variant>);
+      needle.get("http://www.google.com/", function(err, response, data){
+        this.expect(response.statusCode).toBe(200);
+        var dataRaw = data as variant;
+        this.toMapMatch({"abc":"def", "ghi":123}, dataRaw as Map.<variant>);
+        needle.get("http://www.google.com/", function(err, response, data){
+          this.expect(response.statusCode).toBe(200);
+          var dataRaw = data as variant;
+          this.toMapMatch({"abc":"def", "ghi":123}, dataRaw as Map.<variant>);
+          needle.get("http://www.google.com/", function(err, response, data){
+            this.expect(response.statusCode).toBe(302);
+            async.done();
+          });
+        });
+      });
+    });
+    }, 10000);
+  }
 }
 
