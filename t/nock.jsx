@@ -66,7 +66,7 @@ class _Test extends TestCase {
           var dataRaw = data as variant;
           this.toMapMatch({"abc":"def", "ghi":123}, dataRaw as Map.<variant>);
           needle.get("http://www.google.com/", function(err, response, data){
-            this.expect(response.headers["content-type"]).toBe("text/html; charset=UTF-8");
+            this.expect(response.headers["content-type"]).toMatch(/^text\/html.*/);
             async.done();
           });
         });
